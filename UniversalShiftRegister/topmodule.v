@@ -23,8 +23,8 @@ module THEUniversalShiftReg (
           // how we set where our inputs are coming from!, 
             case (mode)
                 2'b00: out <= out;                       // MODE 0: HOLD
-                2'b01: out <= {sr_in, q[1]};           // MODE 1: SHIFT RIGHT
-                2'b10: out <= {q[0], sl_in};           // MODE 2: SHIFT LEFT
+                2'b01: out <= {sr_in, out[1]};           // MODE 1: SHIFT RIGHT
+                2'b10: out <= {out[0], sl_in};           // MODE 2: SHIFT LEFT
                 2'b11: out <= para_in;                 // MODE 3: PARALLEL LOAD
             endcase
           // you can easily increase this code yourself using the SIPO shift register by going "oh we need 8 bits" "let me change the inputs and outputs [#:#] bit width and
